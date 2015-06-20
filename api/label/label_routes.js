@@ -1,13 +1,13 @@
 'use strict';
 
 var path = require('path');
-var controller = require('./label_controller');
-var endpointPrefix = 'label';
+var ctrl = require('./label_controller');
+var resource = 'label';
 
 module.exports = function(server) {
-  server.get(path.join(endpointPrefix,  '/'),    controller.readAll);
-  // server.get(path.join(endpointPrefix,  '/:id'), controller.read);
-  // server.post(path.join(endpointPrefix, '/'),    controller.create);
-  // server.put(path.join(endpointPrefix,  '/:id'), controller.update);
-  // server.del(path.join(endpointPrefix,  '/:id'), controller.delete);
+  server.get({ path: path.join(resource, '/'), version: '1.0.0'}, ctrl.readAll);
+  // server.get({ path: path.join(resource, '/:id'), version: '1.0.0'}, ctrl.read);
+  // server.post({ path: path.join(resource, '/'), version: '1.0.0'}, ctrl.create);
+  // server.put({ path: path.join(resource, '/:id'), version: '1.0.0'}, ctrl.update);
+  // server.del({ path: path.join(resource, '/:id'), version: '1.0.0'}, ctrl.delete);
 };
