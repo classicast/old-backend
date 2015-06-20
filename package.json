@@ -1,0 +1,24 @@
+{
+  "name": "classicaldb-service-metadata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/classicalmusic/classicaldb-service-metadata.git"
+  },
+  "author": "Andrew Zey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/classicalmusic/classicaldb-service-metadata/issues"
+  },
+  "homepage": "https://github.com/classicalmusic/classicaldb-service-metadata#readme",
+  "dependencies": {
+    "es6-promise": "^2.3.0",
+    "glob": "^5.0.10",
+    "restify": "^3.0.3"
+  }
+}
