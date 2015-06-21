@@ -1,11 +1,12 @@
 'use strict';
 
-var argv = require('yargs').argv;
-var gulp  = require('gulp');
-var mocha = require('gulp-mocha');
-var istanbul = require('gulp-istanbul');
+var argv      = require('yargs').argv;
+var gulp      = require('gulp');
+var mocha     = require('gulp-mocha');
+var istanbul  = require('gulp-istanbul');
 var coveralls = require('gulp-coveralls');
-var eslint = require('gulp-eslint');
+var eslint    = require('gulp-eslint');
+var open      = require('gulp-open');
 // var debug = require('gulp-debug');
 
 var paths = {
@@ -15,6 +16,8 @@ var paths = {
     '!node_modules/**/*'
   ]
 };
+
+var devBrowser = 'google chrome';
 
 gulp.task('lint', function() {
   return gulp.src(paths.src.concat(paths.tests))
@@ -62,4 +65,16 @@ gulp.task('test', function() {
 gulp.task('coveralls', function(){
   return gulp.src('./coverage/lcov.info')
   .pipe(coveralls());
+});
+
+gulp.task('coverage', function() {
+  var openOptions = {
+    url: './coverage/lcov-report/index.html',
+    app: devBrowser || 'google chrome'
+  };
+
+  return gulp.src('./coverage/lcov-report/index.html')
+  // A file must be specified as the src when running
+  // options.url or gulp will overlook the task.
+  .pipe(open('', openOptions));
 });

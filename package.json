@@ -34,6 +34,7 @@
     "gulp-eslint": "^0.14.0",
     "gulp-istanbul": "^0.10.0",
     "gulp-mocha": "^2.1.1",
+    "gulp-open": "^0.3.2",
     "sinon": "^1.15.3",
     "sinon-chai": "^2.8.0",
     "supertest": "^1.0.1",
