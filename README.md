@@ -15,3 +15,10 @@ ClassicalDB Metadata Service
 * To Run Linter: `gulp lint`
 
 * To Open Coverage Report: `gulp coverage`
+
+
+**Developer Setup**
+* Node version management: Make sure you have [avn](https://www.npmjs.com/package/avn) and [nvm](https://www.npmjs.com/package/nvm) installed and configured:
+`npm install -g nvm`
+`npm install -g avn avn-nvm`
+`avn setup`
