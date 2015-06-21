@@ -12,7 +12,8 @@
 // var Label = require('./label_model.js');
 
 exports.readAll = function(req, res, next) {
-  res.send(200, 'Hello World!');
+  var labels = ['EMI', 'Columbia', 'Naxos'];
+  res.send(200, labels);
   return next();
 };
 

@@ -28,6 +28,8 @@ gulp.task('lint', function() {
 });
 
 gulp.task('test', function() {
+  process.env.NODE_ENV = 'test';
+
   // Make Chai and extensions available for all unit tests
   var chai = require('chai');
   var sinonChai = require('sinon-chai');
