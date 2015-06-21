@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/classicalmusic/classicaldb-service-metadata#readme",
   "dependencies": {
-    "es6-promise": "^2.3.0",
     "glob": "^5.0.10",
     "object-assign": "^3.0.0",
     "restify": "^3.0.3",
