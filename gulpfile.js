@@ -5,6 +5,7 @@ var gulp  = require('gulp');
 var mocha = require('gulp-mocha');
 var istanbul = require('gulp-istanbul');
 var coveralls = require('gulp-coveralls');
+var eslint = require('gulp-eslint');
 // var debug = require('gulp-debug');
 
 var paths = {
@@ -14,6 +15,14 @@ var paths = {
     '!node_modules/**/*'
   ]
 };
+
+gulp.task('lint', function() {
+  return gulp.src(paths.src.concat(paths.tests))
+  // .pipe(debug())
+  .pipe(eslint())
+  .pipe(eslint.format())
+  .pipe(eslint.failAfterError()); //exit with an error code (1) on lint error
+});
 
 gulp.task('test', function() {
   // Make Chai and extensions available for all unit tests

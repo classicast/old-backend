@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "lint": "gulp lint",
     "test": "gulp test",
     "coveralls": "gulp coveralls"
   },
@@ -30,6 +31,7 @@
     "gulp": "^3.9.0",
     "gulp-coveralls": "^0.1.4",
     "gulp-debug": "^2.0.1",
+    "gulp-eslint": "^0.14.0",
     "gulp-istanbul": "^0.10.0",
     "gulp-mocha": "^2.1.1",
     "sinon": "^1.15.3",
