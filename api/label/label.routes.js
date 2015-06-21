@@ -1,7 +1,7 @@
 'use strict';
 
 var path = require('path');
-var ctrl = require('./label_controller');
+var ctrl = require('./label.controller');
 var resource = 'label';
 
 module.exports = function(server) {

@@ -8,7 +8,10 @@ var istanbul = require('gulp-istanbul');
 
 var paths = {
   'src': ['./+(api|config)/**/!(*.tests.*)*.js'],
-  'tests': ['./**/*.tests.js', '!node_modules/**/*']
+  'tests': [
+    './**/*.tests.js',
+    '!node_modules/**/*'
+  ]
 };
 
 gulp.task('test', function() {
@@ -28,14 +31,14 @@ gulp.task('test', function() {
     test_paths.tests = argv.files;
   }
 
-  gulp.src(test_paths.src || paths.src)
+  return gulp.src(test_paths.src || paths.src)
   // .pipe(debug())
   .pipe(istanbul({
     includeUntested: !test_paths.tests
   }))
   .pipe(istanbul.hookRequire())
   .on('finish', function() {
-    gulp.src(test_paths.tests || paths.tests)
+    return gulp.src(test_paths.tests || paths.tests)
     // .pipe(debug())
     .pipe(mocha({
       reporter: 'spec'
