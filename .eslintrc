@@ -1,0 +1,34 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    "expect": true
+  },
+  "rules": {
+    "strict": [2, "global"],
+    "new-cap": [0],
+    /* camelcase rule turned off because we have obj properties that
+    need to match the API"s expected format, which uses underscores */
+    "camelcase": [0],
+    "comma-dangle": [0], /* dangling commas make it easier to duplicate lines */
+    "comma-spacing": [0], /* used for vertical alignment */
+    "curly": [1],
+    "eqeqeq": [1],
+    "indent": [2, 2],
+    "quotes": [2, "single", "avoid-escape"],
+    "eol-last": [1],
+    "key-spacing": [0], /* used for vertical alignment */
+    "no-mixed-requires": [1],
+    "no-mixed-spaces-and-tabs": [1],
+    "no-new": [0], /* we use classes all the time. this rule is ridiculous */
+    "no-multi-spaces": [0], /* multi-spaces used for vertical alignment */
+    "no-trailing-spaces": [1],
+    "no-underscore-dangle": [0], /* we use "private" variables with dangling underscores */
+    "no-unused-expressions": [0], /* for chai and compact ternaries */
+    "no-unused-vars": [1],
+    "no-use-before-define": [1], /* turn off for ES6 until classes are handled better */
+  }
+}

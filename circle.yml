@@ -8,5 +8,11 @@ dependencies:
 
 test:
   override:
+    - npm run lint
     - npm run test
-    - npm run coveralls
+
+deployment:
+  coverage:
+    branch: master
+    commands:
+      - npm run coveralls

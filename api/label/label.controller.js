@@ -1,3 +1,5 @@
+'use strict';
+
 /**
 * Using CRUD standard naming convention for endpoints.
 * GET     /label        ->  readAll
