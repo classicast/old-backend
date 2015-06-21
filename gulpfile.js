@@ -4,6 +4,7 @@ var argv = require('yargs').argv;
 var gulp  = require('gulp');
 var mocha = require('gulp-mocha');
 var istanbul = require('gulp-istanbul');
+var coveralls = require('gulp-coveralls');
 // var debug = require('gulp-debug');
 
 var paths = {
@@ -47,4 +48,9 @@ gulp.task('test', function() {
       reporters: ['text', 'text-summary', 'json', 'lcov'],  // list of istanbul reporters
     }));
   });
+});
+
+gulp.task('coveralls', function(){
+  return gulp.src('./coverage/lcov.info')
+  .pipe(coveralls());
 });
