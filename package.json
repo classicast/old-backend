@@ -13,7 +13,7 @@
     "url": "git+https://github.com/classicalmusic/classicaldb-service-metadata.git"
   },
   "author": "Andrew Zey",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/classicalmusic/classicaldb-service-metadata/issues"
   },
