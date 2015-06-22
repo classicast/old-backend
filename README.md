@@ -22,3 +22,8 @@ ClassicalDB Metadata Service
 `npm install -g nvm`
 `npm install -g avn avn-nvm`
 `avn setup`
+
+### License
+ClassicalDB Metadata Service is licensed under the [MIT license](https://github.com/classicalmusic/classicaldb-service-metadata/blob/master/LICENSE)
+
+Copyright (c) 2015 Andrew Zey
