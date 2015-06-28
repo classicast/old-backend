@@ -9,7 +9,7 @@
 * DELETE  /label/:id    ->  delete
 */
 
-// var Label = require('./label_model.js');
+var Label = require('../../config/database').Label;
 
 exports.readAll = function(req, res, next) {
   var labels = ['EMI', 'Columbia', 'Naxos'];

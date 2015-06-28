@@ -19,10 +19,14 @@
   },
   "homepage": "https://github.com/classicalmusic/classicaldb-service-metadata#readme",
   "dependencies": {
-    "glob": "^5.0.10",
+    "es6-promise": "https://registry.npmjs.org/es6-promise/-/es6-promise-2.3.0.tgz",
+    "glob": "https://registry.npmjs.org/glob/-/glob-5.0.10.tgz",
     "object-assign": "^3.0.0",
+    "pg": "^4.4.0",
+    "pg-hstore": "^2.3.2",
     "restify": "^3.0.3",
-    "semver": "^4.3.6"
+    "semver": "^4.3.6",
+    "sequelize": "^3.3.2"
   },
   "devDependencies": {
     "chai": "^3.0.0",

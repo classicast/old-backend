@@ -14,7 +14,7 @@ var all = {
   env: process.env.NODE_ENV,
 
   // Root path of server
-  root: path.normalize(path.join(__dirname, '/../..')),
+  root: path.normalize(path.join(__dirname, '/..')),
 
   // Server port
   port: process.env.PORT || 5101,
