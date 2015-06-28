@@ -12,7 +12,9 @@ test:
     - npm run test
 
 deployment:
-  coverage:
+  production:
     branch: master
     commands:
       - npm run coveralls
+      - git push git@heroku.com:api-classicaldb.git $CIRCLE_SHA1:master
+      - heroku run rake db:migrate --app api-classicaldb
