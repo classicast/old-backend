@@ -40,9 +40,9 @@ envConfig.production = {
   // seedDB: false,
 
   // PostgreSQL connection options
-  // postgres: {
-  //   uri: process.env.POSTGRES_URI,
-  // }
+  postgres: {
+    uri: process.env.DATABASE_URL,
+  }
 };
 
 

@@ -16,11 +16,15 @@ describe('environment configuration', function(){
 
   it('should set the appropriate variables for "production environment"', function(){
     process.env.NODE_ENV = 'production';
+    process.env.DATABASE_URL = 'postgres://asdf:aassddff@ec2-12-12-123-123-123.compute-1.amazonaws.com:1234/asdfasdfasdf';
     config = requireUncached('./environment');
 
     var expected = {
       env: 'production',
-      port: 8080
+      port: 8080,
+      postgres: {
+        uri: 'postgres://asdf:aassddff@ec2-12-12-123-123-123.compute-1.amazonaws.com:1234/asdfasdfasdf'
+      }
     };
     for (var key in expected) {
       expect(expected[key]).to.deep.equal(config[key]);
