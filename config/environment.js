@@ -61,9 +61,9 @@ envConfig.development = {
 };
 
 
-// Test specific configuration
+// Local Test specific configuration
 // ===========================
-envConfig.test = {
+envConfig.test_local = {
   // Server port
   port: process.env.PORT || 5202,
 
@@ -74,6 +74,23 @@ envConfig.test = {
   postgres: {
     dbname: 'cdb_metadata_service_test',
     username: 'cdb',
+    password: null
+  }
+};
+
+// CI Test specific configuration
+// ===========================
+envConfig.test_ci = {
+  // Server port
+  port: process.env.PORT || 5202,
+
+  // Should we populate the DB with sample data?
+  // seedDB: false,
+
+  // PostgreSQL connection options
+  postgres: {
+    dbname: 'circle_test',
+    username: 'ubuntu',
     password: null
   }
 };

@@ -27,8 +27,7 @@ function boot(port){
     //Create Database Connection
     database.sequelize.sync()
     .then(function() {
-      if (config.env === 'test') {
-        console.log('test');
+      if (config.env === 'test_local' || config.env === 'test_ci') {
         resolve(server.listen(port));
       }
       else {

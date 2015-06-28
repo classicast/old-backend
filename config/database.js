@@ -1,6 +1,5 @@
 'use strict';
 
-var fs        = require('fs');
 var path      = require('path');
 var glob      = require('glob');
 var Sequelize = require('sequelize');
@@ -27,7 +26,7 @@ if (config.env === 'production') {
     port: 5432,
     protocol: 'postgres',
     dialect: 'postgres',
-    sync: { force: true }
+    sync: { force: false }
   });
 }
 

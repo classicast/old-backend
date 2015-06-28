@@ -6,7 +6,7 @@
 
 var restify = require('restify');
 
-var config  = require('./environment');
+// var config  = require('./environment');
 var version = require('./middleware/version');
 
 module.exports = function(server){
