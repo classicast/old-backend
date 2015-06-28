@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "lint": "gulp lint",
     "test": "gulp test",
     "coveralls": "gulp coveralls"
