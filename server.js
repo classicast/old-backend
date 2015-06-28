@@ -4,6 +4,7 @@
 
 'use strict';
 
+var Promise = require('es6-promise').Promise;
 var restify = require('restify');
 var config  = require('./config/environment');
 
@@ -17,25 +18,29 @@ var server = restify.createServer({
 require('./config/restify')(server);
 require('./config/routes')(server);
 
-// TODO: Configure Database Connection
-// app.set('database', require('./config/database'));
-// var database = app.get('database');
+// Configure Database Connection
+var database = require('./config/database');
 
 
 function boot(port){
-  // TODO: Sync database here first, then do the following:
-  if (config.env === 'test') {
-    return server.listen(port);
-  }
-  else {
-    return server.listen(port, config.ip, function () {
-      console.log(
-        'Restify server listening on %d, in %s mode',
-        config.port,
-        config.env
-      );
+  return new Promise(function(resolve, reject){
+    //Create Database Connection
+    database.sequelize.sync()
+    .then(function() {
+      if (config.env === 'test_local' || config.env === 'test_ci') {
+        resolve(server.listen(port));
+      }
+      else {
+        resolve(server.listen(port, config.ip, function () {
+          console.log(
+            'Restify server listening on %d, in %s mode',
+            config.port,
+            config.env
+          );
+        }));
+      }
     });
-  }
+  });
 }
 
 // If this file is run directly, start the app

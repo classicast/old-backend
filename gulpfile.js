@@ -28,7 +28,9 @@ gulp.task('lint', function() {
 });
 
 gulp.task('test', function() {
-  process.env.NODE_ENV = 'test';
+  if (process.env.NODE_ENV !== 'test_ci') {
+    process.env.NODE_ENV = 'test_local';
+  }
 
   // Make Chai and extensions available for all unit tests
   var chai = require('chai');

@@ -45,12 +45,12 @@ describe('environment configuration', function(){
     }
   });
 
-  it('should set the appropriate variables for "test environment"', function(){
-    process.env.NODE_ENV = 'test';
+  it('should set the appropriate variables for "local test environment"', function(){
+    process.env.NODE_ENV = 'test_local';
     config = requireUncached('./environment');
 
     var expected = {
-      env: 'test',
+      env: 'test_local',
       port: 5202,
       postgres: {
         dbname: 'cdb_metadata_service_test',
@@ -62,4 +62,23 @@ describe('environment configuration', function(){
       expect(expected[key]).to.deep.equal(config[key]);
     }
   });
+
+  it('should set the appropriate variables for "ci test environment"', function(){
+    process.env.NODE_ENV = 'test_ci';
+    config = requireUncached('./environment');
+
+    var expected = {
+      env: 'test_ci',
+      port: 5202,
+      postgres: {
+        dbname: 'circle_test',
+        username: 'ubuntu',
+        password: null
+      }
+    };
+    for (var key in expected) {
+      expect(expected[key]).to.deep.equal(config[key]);
+    }
+  });
+
 });

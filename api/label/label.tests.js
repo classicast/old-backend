@@ -3,14 +3,17 @@
 var request = require('supertest');
 var config  = require('../../config/environment');
 
-describe('/api/employees', function(){
+describe('/label', function(){
   var hostname = 'http://localhost:' + config.port;
   var boot = require('../../server.js').boot;
-  var server;
+  var test_server;
 
-  before(function(){
-    server = boot(config.port);
-    // TODO: populate test DB with sample data
+  before(function(done){
+    boot(config.port)
+    .then(function(server) {
+      test_server = server;
+      done();
+    });
   });
 
   describe('GET request to /label', function() {
@@ -32,7 +35,7 @@ describe('/api/employees', function(){
   });
 
   after(function(){
-    server.close();
+    test_server.close();
   });
 
 });
