@@ -3,12 +3,12 @@
 var path   = require('path');
 var assign = require('object-assign');
 
+// sets default NODE_ENV to 'development' if not already specified
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 // All configurations will extend these options
 // ============================================
 var all = {
-  // sets default NODE_ENV to 'development' if not already specified
-  env: process.env.NODE_ENV || 'development',
-
   // Root path of server
   root: path.normalize(path.join(__dirname, '/../..')),
 
@@ -49,11 +49,11 @@ envConfig.development = {
   // seedDB: true,
 
   // PostgreSQL connection options
-  // postgres: {
-  //   dbname: 'cdb-metadata-service_dev',
-  //   username: 'cdb',
-  //   password: null
-  // }
+  postgres: {
+    dbname: 'cdb_metadata_service_dev',
+    username: 'cdb',
+    password: null
+  }
 };
 
 
@@ -61,17 +61,17 @@ envConfig.development = {
 // ===========================
 envConfig.test = {
   // Server port
-  port: process.env.PORT || 5202
+  port: process.env.PORT || 5202,
 
   // Should we populate the DB with sample data?
   // seedDB: false,
 
   // PostgreSQL connection options
-  // postgres: {
-  //   dbname: 'cdb-metadata-service_test',
-  //   username: 'cdb',
-  //   password: null
-  // }
+  postgres: {
+    dbname: 'cdb_metadata_service_test',
+    username: 'cdb',
+    password: null
+  }
 };
 
 
