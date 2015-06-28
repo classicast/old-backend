@@ -9,6 +9,10 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 // All configurations will extend these options
 // ============================================
 var all = {
+
+  // Node Environment
+  env: process.env.NODE_ENV,
+
   // Root path of server
   root: path.normalize(path.join(__dirname, '/../..')),
 
