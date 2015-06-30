@@ -3,7 +3,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Label = sequelize.define('label',
     {
-      label_name: DataTypes.STRING
+      label_name: DataTypes.STRING,
+      label_defunct_date: DataTypes.DATE, //sequelize automatically converts to UTC
+      label_country: DataTypes.STRING
     },
     {
       // don't add the timestamp attributes (updatedAt, createdAt)
