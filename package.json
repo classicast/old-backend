@@ -9,6 +9,9 @@
     "test": "gulp test",
     "coveralls": "gulp coveralls"
   },
+  "engines": {
+    "node": "0.12.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/classicalmusic/classicaldb-service-metadata.git"
