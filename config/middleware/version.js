@@ -1,7 +1,5 @@
 /* Middleware that makes all the following route formats available:
 *  [procotol]://[host]/api/foo ==> redirects to latest version of API
-*  [protocol]://[host]/api/v[x]/foo
-*  [protocol]://[host]/api/v[x].[y]/foo
 *  [protocol]://[host]/api/v[x].[y].[z]/foo
 */
 
