@@ -6,7 +6,16 @@ function requireUncached(module){
 }
 
 describe('environment configuration', function(){
-  var config;
+  var cachedNodeEnv, config;
+
+  before(function() {
+    cachedNodeEnv = process.env.NODE_ENV;
+  });
+
+  after(function() {
+    process.env.NODE_ENV = cachedNodeEnv;
+  });
+
   it('should set process.env.NODE_ENV to "development" by default', function(){
     //"gulp test" sets process.env.NODE_ENV to 'test', so we need to override that
     delete process.env.NODE_ENV;

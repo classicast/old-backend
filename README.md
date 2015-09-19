@@ -19,9 +19,12 @@ ClassicalDB Metadata Service
 
 **Developer Setup**
 * Node version management: Make sure you have [avn](https://www.npmjs.com/package/avn) and [nvm](https://www.npmjs.com/package/nvm) installed and configured:
-`npm install -g nvm`
-`npm install -g avn avn-nvm`
+`npm install -g nvm avn avn-nvm`
 `avn setup`
+`nvm install v4.1.0`
+* Global Command Line Utilities
+  * `npm install -g gulp`
+  * `npm install -g eslint eslint-plugin-react` (for native editor linting)
 
 ### License
 ClassicalDB Metadata Service is licensed under the [MIT license](https://github.com/classicalmusic/classicaldb-service-metadata/blob/master/LICENSE)
