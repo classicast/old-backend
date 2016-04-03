@@ -1,5 +1,7 @@
 'use strict';
 
+import { expect } from 'chai';
+
 function requireUncached(module){
   delete require.cache[require.resolve(module)];
   return require(module);
@@ -14,6 +16,7 @@ describe('environment configuration', function(){
 
   after(function() {
     process.env.NODE_ENV = cachedNodeEnv;
+    delete require.cache[require.resolve('./environment')];
   });
 
   it('should set process.env.NODE_ENV to "development" by default', function(){
