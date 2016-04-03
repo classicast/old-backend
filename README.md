@@ -8,13 +8,13 @@ ClassicalDB Metadata Service
 
 **Available Automation Tasks**
 
-* To Run All Unit Tests: `gulp test`
+* To Run All Unit Tests: `make test`
 
-* To Run Specific Unit Test(s): `gulp test --files="<GLOB>"`
+* To Run Specific Unit Test(s): `make TESTS="<glob, eg: ./**/sample.tests.js>" test`
 
-* To Run Linter: `gulp lint`
+* To Run Linter: `make lint`
 
-* To Open Coverage Report: `gulp coverage`
+* To Open Coverage Report: `make report`
 
 
 **Developer Setup**
@@ -23,8 +23,8 @@ ClassicalDB Metadata Service
 `avn setup`
 `nvm install v4.1.0`
 * Global Command Line Utilities
-  * `npm install -g gulp`
-  * `npm install -g eslint eslint-plugin-react` (for native editor linting)
+  * `npm install -g eslint` (for native editor linting)
+* Install postgres app (http://postgresapp.com/)
 
 ### License
 ClassicalDB Metadata Service is licensed under the [MIT license](https://github.com/classicalmusic/classicaldb-service-metadata/blob/master/LICENSE)

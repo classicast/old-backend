@@ -10,12 +10,12 @@ dependencies:
 
 test:
   override:
-    - npm run lint
-    - npm run test
+    # - make lint (Temporarily disabled for future refactor to ES2015)
+    - make test
 
 deployment:
   production:
     branch: master
     commands:
-      - npm run coveralls
+      - make coveralls
       - git push git@heroku.com:api-classicaldb.git $CIRCLE_SHA1:master

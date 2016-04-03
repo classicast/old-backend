@@ -1,5 +1,7 @@
 'use strict';
 
+import chai, { expect } from 'chai';
+
 var request = require('supertest');
 var config  = require('../../config/environment');
 

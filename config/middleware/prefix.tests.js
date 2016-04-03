@@ -1,5 +1,9 @@
 'use strict';
 
+import chai, { expect } from 'chai';
+import sinonChai from 'sinon-chai';
+chai.use(sinonChai);
+
 var restify = require('restify');
 var sinon = require('sinon');
 var prefix = require('./prefix');
