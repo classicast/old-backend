@@ -2,15 +2,11 @@
 * Express Configuration
 */
 
-'use strict';
+import restify from 'restify';
 
-var restify = require('restify');
+import version from './middleware/version';
 
-// var config  = require('./environment');
-var version = require('./middleware/version');
-
-module.exports = function(server){
-
+export default (server) => {
   // Configure Middleware that runs before routing
   server.pre(version()); // Add semver versioning
   server.pre(restify.pre.sanitizePath()); // eg. /label///// --> /label

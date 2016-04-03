@@ -2,18 +2,16 @@
 * Main application routes
 */
 
-'use strict';
+import glob from 'glob';
+import path from 'path';
 
-var glob = require('glob');
-var path = require('path');
-
-module.exports = function(server) {
+export default (server) => {
   // Traverse directories in 'api' directory in project root, and register any
   // routes in resource directory, which will be named as '<resource>_routes.js'
-  var routes = glob.sync('api/**/*.routes.js').map(function(route) {
-    return path.join(__dirname, '../', route);
-  });
-  routes.forEach(function(route) {
-    require(route)(server);
+  const routes = glob.sync('api/**/*.routes.js').map(route =>
+    path.join(__dirname, '../', route)
+  );
+  routes.forEach(route => {
+    require(route).default(server);
   });
 };

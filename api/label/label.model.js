@@ -1,11 +1,9 @@
-'use strict';
-
-module.exports = function(sequelize, DataTypes) {
-  var Label = sequelize.define('label',
+export default function model(sequelize, DataTypes) {
+  const Label = sequelize.define('label',
     {
       label_name: DataTypes.STRING,
-      label_defunct_date: DataTypes.DATE, //sequelize automatically converts to UTC
-      label_country: DataTypes.STRING
+      label_defunct_date: DataTypes.DATE, // sequelize automatically converts to UTC
+      label_country: DataTypes.STRING,
     },
     {
       // don't add the timestamp attributes (updatedAt, createdAt)
@@ -21,8 +19,8 @@ module.exports = function(sequelize, DataTypes) {
       freezeTableName: true,
 
       // define the table's name
-      tableName: 'label'
+      tableName: 'label',
     }
   );
   return Label;
-};
+}

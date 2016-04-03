@@ -2,12 +2,12 @@
   "name": "classicaldb-service-metadata",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "engines": {
-    "node": "0.12.4"
+    "node": "4.1.0"
   },
   "repository": {
     "type": "git",
@@ -20,14 +20,13 @@
   },
   "homepage": "https://github.com/classicalmusic/classicaldb-service-metadata#readme",
   "dependencies": {
-    "es6-promise": "https://registry.npmjs.org/es6-promise/-/es6-promise-3.0.2.tgz",
+    "babel-polyfill": "^6.7.4",
     "glob": "5.0.14",
-    "object-assign": "4.0.1",
     "pg": "4.4.1",
     "pg-hstore": "2.3.2",
     "restify": "4.0.3",
     "semver": "5.0.3",
-    "sequelize": "3.9.0"
+    "sequelize": "^3.20.0"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -37,6 +36,7 @@
     "chai": "^3.2.0",
     "chai-as-promised": "5.1.0",
     "coveralls": "^2.11.9",
+    "dirty-chai": "^1.2.2",
     "eslint": "^2.6.0",
     "eslint-config-airbnb": "^6.2.0",
     "istanbul": "1.0.0-alpha.2",
