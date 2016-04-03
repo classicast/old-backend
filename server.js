@@ -2,36 +2,35 @@
 * Main Application File
 */
 
-'use strict';
+import restify from 'restify';
 
-var Promise = require('es6-promise').Promise;
-var restify = require('restify');
-var config  = require('./config/environment');
+import config from './config/environment';
+import restifyConfig from './config/restify';
+import routes from './config/routes';
+import database from './config/database';
 
 // Setup Server
-var server = restify.createServer({
+const server = restify.createServer({
   name: 'classicaldb-metadata',
-  versions: ['1.0.0']
+  versions: ['1.0.0'],
 });
 
 // Configure Restify and Routes
-require('./config/restify')(server);
-require('./config/routes')(server);
+// TODO: figure out an elegant way to produce this pattern using ES2015 imports
+restifyConfig(server);
+routes(server);
 
-// Configure Database Connection
-var database = require('./config/database');
-
-
-function boot(port){
-  return new Promise(function(resolve, reject){
-    //Create Database Connection
+// Export this function so that it can be used inside of tests
+export function boot(port) {
+  return new Promise((resolve) => {
+    // Create Database Connection
     database.sequelize.sync()
-    .then(function() {
+    .then(() => {
       if (config.env === 'test_local' || config.env === 'test_ci') {
         resolve(server.listen(port));
-      }
-      else {
-        resolve(server.listen(port, config.ip, function () {
+      } else {
+        resolve(server.listen(port, config.ip, () => {
+          // TODO: implement good logging
           console.log(
             'Restify server listening on %d, in %s mode',
             config.port,
@@ -41,14 +40,4 @@ function boot(port){
       }
     });
   });
-}
-
-// If this file is run directly, start the app
-if(require.main === module){
-  boot(config.port);
-}
-// Else if this file is imported by another module (like a test)
-// export the boot function
-else {
-  exports.boot = boot;
 }

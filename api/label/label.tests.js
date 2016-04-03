@@ -1,43 +1,39 @@
-'use strict';
+import { expect } from 'chai';
+import request from 'supertest';
 
-import chai, { expect } from 'chai';
+import config from '../../config/environment';
+import { boot } from '../../server.js';
 
-var request = require('supertest');
-var config  = require('../../config/environment');
+describe('/label', () => {
+  const hostname = `http://localhost:${config.port}`;
+  let testServer;
 
-describe('/label', function(){
-  var hostname = 'http://localhost:' + config.port;
-  var boot = require('../../server.js').boot;
-  var test_server;
-
-  before(function(done){
+  before(done => {
     boot(config.port)
-    .then(function(server) {
-      test_server = server;
+    .then(server => {
+      testServer = server;
       done();
     });
   });
 
-  describe('GET request to /label', function() {
-
-    it('should return list of labels', function(done) {
-      var expected = ['EMI', 'Columbia', 'Naxos'];
+  describe('GET request to /label', () => {
+    it('should return list of labels', done => {
+      const expected = ['EMI', 'Columbia', 'Naxos'];
 
       request(hostname)
       .get('/label')
       .expect(200)
       .expect('Content-Type', /json/)
-      .end(function(err, res){
-        if(err){ throw err; }
-        var labels = JSON.parse(res.text);
+      .end((err, res) => {
+        if (err) { throw err; }
+        const labels = JSON.parse(res.text);
         expect(labels).to.deep.equals(expected);
         done();
       });
     });
   });
 
-  after(function(){
-    test_server.close();
+  after(() => {
+    testServer.close();
   });
-
 });

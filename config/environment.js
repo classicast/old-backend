@@ -1,14 +1,11 @@
-'use strict';
-
-var path   = require('path');
-var assign = require('object-assign');
+import path from 'path';
 
 // sets default NODE_ENV to 'development' if not already specified
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 // All configurations will extend these options
 // ============================================
-var all = {
+const all = {
 
   // Node Environment
   env: process.env.NODE_ENV,
@@ -28,7 +25,7 @@ var all = {
   // userRoles: ['guest', 'user', 'admin'],
 };
 
-var envConfig = {};
+const envConfig = {};
 
 // Production specific configuration
 // =================================
@@ -42,7 +39,7 @@ envConfig.production = {
   // PostgreSQL connection options
   postgres: {
     uri: process.env.DATABASE_URL,
-  }
+  },
 };
 
 
@@ -56,8 +53,8 @@ envConfig.development = {
   postgres: {
     dbname: 'cdb_metadata_service_dev',
     username: 'cdb',
-    password: null
-  }
+    password: null,
+  },
 };
 
 
@@ -74,8 +71,8 @@ envConfig.test_local = {
   postgres: {
     dbname: 'cdb_metadata_service_test',
     username: 'cdb',
-    password: null
-  }
+    password: null,
+  },
 };
 
 // CI Test specific configuration
@@ -91,11 +88,11 @@ envConfig.test_ci = {
   postgres: {
     dbname: 'circle_test',
     username: 'ubuntu',
-    password: null
-  }
+    password: null,
+  },
 };
 
 
 // Export the config object based on the NODE_ENV
 // ==============================================
-module.exports = assign(all, envConfig[process.env.NODE_ENV]);
+export default Object.assign({}, all, envConfig[process.env.NODE_ENV]);

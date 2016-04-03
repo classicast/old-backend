@@ -1,22 +1,20 @@
 /* Middleware that will throw an error if an API prefix is not in the route
 */
 
-'use strict';
+import { BadRequestError } from 'restify';
 
-var restify = require('restify');
+export default (options) => {
+  const opts = options || {};
+  opts.prefix = opts.prefix || '';
 
-module.exports = function (options) {
-  options = options || {};
-  options.prefix = options.prefix || '';
-
-  return function (req, res, next) {
-    if (req.url.indexOf(options.prefix) === -1) {
-      return next(new restify.BadRequestError('API requests must begin with "api": /api/<version[optional]>/<resource>'));
+  return (request, response, next) => {
+    const req = request;
+    if (req.url.indexOf(opts.prefix) === -1) {
+      return next(new BadRequestError('API requests must begin with "api": ' +
+        '/api/<version[optional]>/<resource>'));
     }
-    else {
-      // removes prefix for downstream route handling / matching
-      req.url = req.url.replace(options.prefix, '');
-      return next();
-    }
+    // removes prefix for downstream route handling / matching
+    req.url = req.url.replace(opts.prefix, '');
+    return next();
   };
 };

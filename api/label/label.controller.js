@@ -1,5 +1,3 @@
-'use strict';
-
 /**
 * Using CRUD standard naming convention for endpoints.
 * GET     /label        ->  readAll
@@ -11,11 +9,11 @@
 
 // var Label = require('../../config/database').Label;
 
-exports.readAll = function(req, res, next) {
-  var labels = ['EMI', 'Columbia', 'Naxos'];
+export function readAll(req, res, next) {
+  const labels = ['EMI', 'Columbia', 'Naxos'];
   res.send(200, labels);
   return next();
-};
+}
 
 // function handleError(res, statusCode, err) {
 //   statusCode = statusCode || 500;

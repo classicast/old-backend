@@ -1,13 +1,14 @@
 BIN=node_modules/.bin
 
 TESTS ?= "**/*.tests.js"
+SRC_FILES ?= "{server,index,{api,config}/**/*}.js"
 
 ifneq ($(NODE_ENV), test_ci)
 NODE_ENV = test_local
 endif
 
 lint:
-	$(BIN)/eslint "**/*.js"
+	$(BIN)/eslint $(SRC_FILES)
 
 ## Set default test NODE_ENV to test_local
 # test: NODE_ENV ?= test_local
