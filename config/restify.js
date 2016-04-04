@@ -14,6 +14,7 @@ export default (server) => {
   // Configure middleware that runs on all routes
   server.use(restify.gzipResponse());
   server.use(restify.bodyParser());
+  server.use(restify.queryParser());
 
   // if (config.env === 'dev') {
   //   // Put environment specific middleware here

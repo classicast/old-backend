@@ -1,9 +1,18 @@
 export default function model(sequelize, DataTypes) {
-  const Label = sequelize.define('label',
+  const Label = sequelize.define('Label',
     {
-      label_name: DataTypes.STRING,
-      label_defunct_date: DataTypes.DATE, // sequelize automatically converts to UTC
-      label_country: DataTypes.STRING,
+      label_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      label_defunct_date: {
+        type: DataTypes.DATE, // sequelize automatically converts to UTC
+        allowNull: true,
+      },
+      label_country: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
     },
     {
       // don't add the timestamp attributes (updatedAt, createdAt)

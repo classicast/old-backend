@@ -34,7 +34,7 @@ envConfig.production = {
   port: process.env.PORT || 8080,
 
   // Should we populate the DB with sample data?
-  // seedDB: false,
+  seedDB: false,
 
   // PostgreSQL connection options
   postgres: {
@@ -47,7 +47,7 @@ envConfig.production = {
 // ==================================
 envConfig.development = {
   // Should we populate the DB with sample data?
-  // seedDB: true,
+  seedDB: true,
 
   // PostgreSQL connection options
   postgres: {
@@ -65,7 +65,7 @@ envConfig.test_local = {
   port: process.env.PORT || 5202,
 
   // Should we populate the DB with sample data?
-  // seedDB: false,
+  seedDB: false,
 
   // PostgreSQL connection options
   postgres: {
@@ -82,7 +82,7 @@ envConfig.test_ci = {
   port: process.env.PORT || 5202,
 
   // Should we populate the DB with sample data?
-  // seedDB: false,
+  seedDB: false,
 
   // PostgreSQL connection options
   postgres: {

@@ -7,18 +7,20 @@
 * DELETE  /label/:id    ->  delete
 */
 
-// var Label = require('../../config/database').Label;
+import { handleError } from '../../config/errorHandler';
+import db from '../../config/database';
+const { Label } = db;
 
 export function readAll(req, res, next) {
-  const labels = ['EMI', 'Columbia', 'Naxos'];
-  res.send(200, labels);
-  return next();
+  Label.findAll()
+  .then(labels => {
+    res.send(200, labels);
+    return next();
+  })
+  .catch((statusCode, err) => {
+    handleError(res, statusCode, err);
+  });
 }
-
-// function handleError(res, statusCode, err) {
-//   statusCode = statusCode || 500;
-//   return res.status(statusCode).send(err);
-// }
 
 // // Get list of all employees
 // exports.readAll = function(req, res) {
