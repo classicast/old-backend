@@ -16,7 +16,6 @@ const server = restify.createServer({
 });
 
 // Configure Restify and Routes
-// TODO: figure out an elegant way to produce this pattern using ES2015 imports
 restifyConfig(server);
 routes(server);
 

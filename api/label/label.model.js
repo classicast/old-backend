@@ -6,7 +6,7 @@ export default function model(sequelize, DataTypes) {
         allowNull: false,
       },
       label_defunct_date: {
-        type: DataTypes.DATE, // sequelize automatically converts to UTC
+        type: DataTypes.DATEONLY, // sequelize automatically converts to UTC
         allowNull: true,
       },
       label_country: {
