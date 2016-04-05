@@ -7,19 +7,17 @@
 * DELETE  /label/:id    ->  delete
 */
 
-import { handleError } from '../../config/errorHandler';
 import db from '../../config/database';
 const { Label } = db;
 
 export function readAll(req, res, next) {
-  Label.findAll()
+  return Label.findAll()
   .then(labels => {
     res.send(200, labels);
     return next();
   })
-  .catch((statusCode, err) => {
-    handleError(res, statusCode, err);
-  });
+  // TODO: better error handling
+  .catch(err => res.send(err));
 }
 
 // // Get list of all employees
