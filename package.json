@@ -2,9 +2,9 @@
   "name": "classicaldb-service-metadata",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node main.js"
   },
   "engines": {
     "node": "4.1.0"
@@ -27,6 +27,7 @@
     "glob": "5.0.14",
     "pg": "4.4.1",
     "pg-hstore": "2.3.2",
+    "pm2": "^1.1.1",
     "restify": "4.0.3",
     "semver": "5.0.3",
     "sequelize": "^3.20.0"
