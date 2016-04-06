@@ -3,6 +3,6 @@
 require('babel-register');
 require('babel-polyfill');
 const config = require('./config/environment').default;
-const server = require('./server');
+const boot = require('./server').boot;
 
-server.boot(config.port);
+boot(config.port);
