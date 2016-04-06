@@ -5,6 +5,8 @@ machine:
     version: v4.1.0
 
 dependencies:
+  pre:
+    - npm install -g npm@3.3.12
   override:
     - npm install
 
