@@ -1,9 +1,9 @@
 ClassicalDB Metadata Service
 =============================
 
-[![Circle CI](https://img.shields.io/circleci/project/classicalmusic/classicaldb-service-metadata/master.svg)](https://circleci.com/gh/classicalmusic/classicaldb-service-metadata?branch=master)
-[![Coverage Status](https://img.shields.io/coveralls/classicalmusic/classicaldb-service-metadata/master.svg)](https://coveralls.io/r/classicalmusic/classicaldb-service-metadata?branch=master)
-[![Dependency Checker](http://img.shields.io/david/classicalmusic/classicaldb-service-metadata.svg)](https://david-dm.org/classicalmusic/classicaldb-service-metadata?branch=master)
+[![Circle CI](https://circleci.com/gh/classicalmusic/api.classicaldb.org.svg?style=shield)](https://circleci.com/gh/classicalmusic/api.classicaldb.org)
+[![Coverage Status](https://coveralls.io/repos/github/classicalmusic/api.classicaldb.org/badge.svg?branch=master)](https://coveralls.io/github/classicalmusic/api.classicaldb.org?branch=master)
+[![Dependency Checker](https://david-dm.org/classicalmusic/api.classicaldb.org.svg)](https://david-dm.org/classicalmusic/api.classicaldb.org?branch=master)
 
 
 **Available Automation Tasks**
