@@ -1,3 +1,5 @@
+import 'babel-polyfill'; // Needed for async / await functions
+
 import { expect } from 'chai';
 import request from 'supertest';
 
