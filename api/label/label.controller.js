@@ -10,14 +10,20 @@
 import db from '../../config/database';
 const { Label } = db;
 
-export function readAll(req, res, next) {
-  return Label.findAll()
-  .then(labels => {
+export async function readAll(req, res, next) {
+  try {
+    // Validate that query param exists on the db model, and is not undefined
+    // Then construct list of validParams to send to Label.findAll where method
+    // const validParams = {};
+    const labels = await Label.findAll({
+      // where: validParams,
+    });
     res.send(200, labels);
     return next();
-  })
-  // TODO: better error handling
-  .catch(err => res.send(err));
+  } catch (err) {
+    // TODO: better error handling
+    return next(err);
+  }
 }
 
 // // Get list of all employees

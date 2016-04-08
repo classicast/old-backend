@@ -37,6 +37,10 @@ export function boot(port) {
           );
         }));
       }
+    })
+    .catch((err) => {
+      // TODO: implement good logging
+      console.error(err);
     });
   });
 }
