@@ -2,11 +2,11 @@ machine:
   environment:
     NODE_ENV: test_ci
   node:
-    version: v4.1.0
+    version: v5.10.1
 
 dependencies:
   pre:
-    - npm install -g npm@3.3.12
+    - npm install -g npm@3.8.6
   override:
     - npm install
 
