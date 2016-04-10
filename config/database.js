@@ -16,20 +16,20 @@ if (config.env === 'production') {
   sequelize = new Sequelize(match[5], match[1], match[2], {
     host: match[3],
     port: match[4],
-    protocol: 'postgres',
-    dialect: 'postgres',
+    protocol: config.postgres.protocol,
+    dialect: config.postgres.dialect,
     sync: { force: false },
   });
 } else {
   sequelize = new Sequelize(
-    config.postgres.dbname,
+    config.postgres.database,
     config.postgres.username,
     config.postgres.password,
     {
-      host: 'localhost',
-      port: 5432,
-      protocol: 'postgres',
-      dialect: 'postgres',
+      host: config.postgres.host,
+      port: config.postgres.port,
+      protocol: config.postgres.protocol,
+      dialect: config.postgres.dialect,
       sync: { force: false },
     }
   );

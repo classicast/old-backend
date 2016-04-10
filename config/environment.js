@@ -1,4 +1,5 @@
 import path from 'path';
+import dbConfig from './databaseConfig';
 
 // sets default NODE_ENV to 'development' if not already specified
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -33,12 +34,9 @@ envConfig.production = {
   // Server port
   port: process.env.PORT || 8080,
 
-  // Should we populate the DB with sample data?
-  seedDB: false,
-
   // PostgreSQL connection options
   postgres: {
-    uri: process.env.DATABASE_URL,
+    uri: process.env[dbConfig.production.use_env_variable],
   },
 };
 
@@ -46,15 +44,8 @@ envConfig.production = {
 // Development specific configuration
 // ==================================
 envConfig.development = {
-  // Should we populate the DB with sample data?
-  seedDB: true,
-
   // PostgreSQL connection options
-  postgres: {
-    dbname: 'cdb_metadata_service_dev',
-    username: 'cdb',
-    password: null,
-  },
+  postgres: dbConfig.development,
 };
 
 
@@ -64,15 +55,8 @@ envConfig.test_local = {
   // Server port
   port: process.env.PORT || 5202,
 
-  // Should we populate the DB with sample data?
-  seedDB: false,
-
   // PostgreSQL connection options
-  postgres: {
-    dbname: 'cdb_metadata_service_test',
-    username: 'cdb',
-    password: null,
-  },
+  postgres: dbConfig.test_local,
 };
 
 // CI Test specific configuration
@@ -85,11 +69,7 @@ envConfig.test_ci = {
   seedDB: false,
 
   // PostgreSQL connection options
-  postgres: {
-    dbname: 'circle_test',
-    username: 'ubuntu',
-    password: null,
-  },
+  postgres: dbConfig.test_ci,
 };
 
 

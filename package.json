@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "make migrate && node main.js"
   },
   "engines": {
     "node": "5.10.1",
@@ -31,7 +31,8 @@
     "pm2": "^1.1.1",
     "restify": "^4.0.4",
     "semver": "^5.1.0",
-    "sequelize": "^3.21.0"
+    "sequelize": "^3.21.0",
+    "sequelize-cli": "^2.3.1"
   },
   "devDependencies": {
     "babel-cli": "^6.7.5",

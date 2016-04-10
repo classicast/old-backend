@@ -50,9 +50,13 @@ describe('environment configuration', () => {
       env: 'development',
       port: 5101,
       postgres: {
-        dbname: 'cdb_metadata_service_dev',
+        database: 'cdb_metadata_service_dev',
         username: 'cdb',
         password: null,
+        host: '127.0.0.1',
+        port: 5432,
+        protocol: 'postgres',
+        dialect: 'postgres',
       },
     };
     Object.keys(expected).forEach(key =>
@@ -68,9 +72,13 @@ describe('environment configuration', () => {
       env: 'test_local',
       port: 5202,
       postgres: {
-        dbname: 'cdb_metadata_service_test',
+        database: 'cdb_metadata_service_test',
         username: 'cdb',
         password: null,
+        host: '127.0.0.1',
+        port: 5432,
+        protocol: 'postgres',
+        dialect: 'postgres',
       },
     };
     Object.keys(expected).forEach(key =>
@@ -86,9 +94,13 @@ describe('environment configuration', () => {
       env: 'test_ci',
       port: 5202,
       postgres: {
-        dbname: 'circle_test',
+        database: 'circle_test',
         username: 'ubuntu',
         password: null,
+        host: '127.0.0.1',
+        port: 5432,
+        protocol: 'postgres',
+        dialect: 'postgres',
       },
     };
     Object.keys(expected).forEach(key =>

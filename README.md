@@ -10,7 +10,7 @@ ClassicalDB Metadata Service
 
 * To Run All Unit Tests: `make test`
 
-* To Run Specific Unit Test(s): `make TESTS="<glob, eg: ./**/sample.tests.js>" test`
+* To Run Specific Unit Test(s): `make test TESTS="<glob, eg: ./**/sample.tests.js>"`
 
 * To Run Linter: `make lint`
 
