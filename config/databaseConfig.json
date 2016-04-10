@@ -1,0 +1,34 @@
+{
+  "development": {
+    "database": "cdb_metadata_service_dev",
+    "username": "cdb",
+    "password": null,
+    "host": "127.0.0.1",
+    "port": 5432,
+    "protocol": "postgres",
+    "dialect": "postgres"
+  },
+  "test_local": {
+    "database": "cdb_metadata_service_test",
+    "username": "cdb",
+    "password": null,
+    "host": "127.0.0.1",
+    "port": 5432,
+    "protocol": "postgres",
+    "dialect": "postgres"
+  },
+  "test_ci": {
+    "database": "circle_test",
+    "username": "ubuntu",
+    "password": null,
+    "host": "127.0.0.1",
+    "port": 5432,
+    "protocol": "postgres",
+    "dialect": "postgres"
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL",
+    "protocol": "postgres",
+    "dialect": "postgres"
+  }
+}
