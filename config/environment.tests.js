@@ -35,6 +35,8 @@ describe('environment configuration', () => {
       port: 8080,
       postgres: {
         uri: 'postgres://asdf:aassddff@ec2-12-12-123-123-123.compute-1.amazonaws.com:1234/asdfasdfasdf',
+        protocol: 'postgres',
+        dialect: 'postgres',
       },
     };
     Object.keys(expected).forEach(key =>

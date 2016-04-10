@@ -37,6 +37,8 @@ envConfig.production = {
   // PostgreSQL connection options
   postgres: {
     uri: process.env[dbConfig.production.use_env_variable],
+    protocol: dbConfig.production.protocol,
+    dialect: dbConfig.production.dialect,
   },
 };
 
@@ -72,7 +74,7 @@ envConfig.test_ci = {
   postgres: dbConfig.test_ci,
 };
 
-
 // Export the config object based on the NODE_ENV
 // ==============================================
-export default Object.assign({}, all, envConfig[process.env.NODE_ENV]);
+const config = Object.assign({}, all, envConfig[process.env.NODE_ENV]);
+export default config;
